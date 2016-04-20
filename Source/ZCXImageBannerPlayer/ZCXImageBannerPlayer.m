@@ -244,8 +244,6 @@ typedef NS_ENUM(NSInteger, ZCXImageBannerPlayerScrollDirectionType) {
     CGSize size = [_pageControl sizeForNumberOfPages:_pageControl.numberOfPages];
     size.height = kPageControlHeight;
     
-    _pageControl.backgroundColor = [UIColor redColor];
-    
     switch (_pageControlLayout) {
         case ZCXImageBannerPageControlLayoutNone:
             self.pageControl.hidden = YES;
