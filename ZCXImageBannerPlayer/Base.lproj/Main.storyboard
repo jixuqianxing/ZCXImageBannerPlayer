@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fC7-mA-Per" customClass="ZCXImageBannerPlayer">
+                                <rect key="frame" x="0.0" y="20" width="600" height="202"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="202" id="hdi-Ud-V03"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jixuqianxing.github.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaw-ys-w5I">
+                                <rect key="frame" x="215.5" y="570" width="170" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yJ-so-JWb" customClass="ZCXImageBannerPlayer">
+                                <rect key="frame" x="0.0" y="242" width="600" height="202"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="202" id="MCX-W6-cLO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4yJ-so-JWb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7XA-P7-2sM"/>
+                            <constraint firstItem="4yJ-so-JWb" firstAttribute="top" secondItem="fC7-mA-Per" secondAttribute="bottom" constant="20" id="DON-9f-yVv"/>
+                            <constraint firstAttribute="trailing" secondItem="fC7-mA-Per" secondAttribute="trailing" id="EF1-Qm-Vt3"/>
+                            <constraint firstAttribute="trailing" secondItem="4yJ-so-JWb" secondAttribute="trailing" id="VQ3-j1-XjS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eaw-ys-w5I" secondAttribute="bottom" constant="8.5" id="WSS-E2-sro"/>
+                            <constraint firstItem="eaw-ys-w5I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XTs-yU-7IC"/>
+                            <constraint firstItem="fC7-mA-Per" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b0H-4G-wp4"/>
+                            <constraint firstItem="fC7-mA-Per" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="yal-BB-7a1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageBannerPlayer" destination="fC7-mA-Per" id="ogd-oq-Zk1"/>
+                        <outlet property="imageBannerPlayer1" destination="4yJ-so-JWb" id="m4V-i5-I81"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="365"/>
+        </scene>
+    </scenes>
+</document>
