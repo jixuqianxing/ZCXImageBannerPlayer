@@ -7,6 +7,7 @@
 # 可实现的功能
 * 可设置是否需要自动轮播
 * 单张照片不展示Pagecontrol，不轮播
+* 是否展示Pagecontrol
 * Pagecontrol颜色自定义
 * 设置轮播停留时长
 * 当数据变化时可直接调用`- (void)reloadImageData`方法来更新UI数据
