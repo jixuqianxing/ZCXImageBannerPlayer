@@ -72,4 +72,7 @@ typedef NS_ENUM(NSUInteger, ZCXImageBannerPageControlLayout) {
 
 - (void)reloadImageData;
 
+- (void)startTimer;
+- (void)stopTimer;
+
 @end
