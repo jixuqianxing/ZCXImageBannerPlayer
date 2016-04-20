@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, ZCXImageBannerPageControlLayout) {
 /**
  *  设置每个界面的图片
  *
- *  @param imagePlayerView ZCXImagePlayerView
+ *  @param imageBannerPlayer ZCXImageBannerPlayer
  *  @param imageView       需要设置图片的imageView
  *  @param index           设置图片的位置
  */
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSUInteger, ZCXImageBannerPageControlLayout) {
 /**
  *  点击的为界面位置
  *
- *  @param imagePlayerView ZCXImagePlayerView
+ *  @param imageBannerPlayer ZCXImageBannerPlayer
  *  @param index           位置
  */
 - (void)imageBannerPlayer:(ZCXImageBannerPlayer *)imageBannerPlayer
