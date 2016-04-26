@@ -81,10 +81,12 @@ typedef NS_ENUM(NSInteger, ZCXImageBannerPlayerScrollDirectionType) {
         _imageScrollView.showsHorizontalScrollIndicator = NO;
         _imageScrollView.showsVerticalScrollIndicator   = NO;
         _imageScrollView.delegate = self;
+        
         _currentImageView = [[UIImageView alloc] init];
         _currentImageView.userInteractionEnabled = YES;
-        [_currentImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick:)]];
+        [_currentImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClicked:)]];
         [_imageScrollView addSubview:_currentImageView];
+        
         _nextImageView = [[UIImageView alloc] init];
         [_imageScrollView addSubview:_nextImageView];
     }
@@ -102,11 +104,11 @@ typedef NS_ENUM(NSInteger, ZCXImageBannerPlayerScrollDirectionType) {
 }
 
 - (CGFloat)width {
-    return CGRectGetWidth(self.imageScrollView.bounds);
+    return CGRectGetWidth(self.bounds);
 }
 
 - (CGFloat)height {
-    return CGRectGetHeight(self.imageScrollView.bounds);
+    return CGRectGetHeight(self.bounds);
 }
 
 #pragma mark setter
@@ -123,7 +125,8 @@ typedef NS_ENUM(NSInteger, ZCXImageBannerPlayerScrollDirectionType) {
         _nextIndex = _currentIndex - 1;
         if (_nextIndex < 0) _nextIndex = _imageCount - 1;
     }
-    else if (scrollDirectionType == ZCXImageBannerPlayerScrollDirectionTypeLeft){
+    else if (scrollDirectionType == ZCXImageBannerPlayerScrollDirectionTypeLeft) {
+        
         _nextImageView.frame = CGRectMake(CGRectGetMaxX(_currentImageView.frame), 0, self.width, self.height);
         _nextIndex = (_currentIndex + 1) % _imageCount;
     }
@@ -179,7 +182,7 @@ typedef NS_ENUM(NSInteger, ZCXImageBannerPlayerScrollDirectionType) {
 
 #pragma mark - Private 
 #pragma mark 点击图片事件
-- (void)imageClick:(UITapGestureRecognizer *)gesture {
+- (void)imageClicked:(UITapGestureRecognizer *)gesture {
     if (_delegate && [_delegate respondsToSelector:@selector(imageBannerPlayer:clickedAtIndex:)]) {
         [_delegate imageBannerPlayer:self clickedAtIndex:@(_currentIndex)];
     }
@@ -274,12 +277,13 @@ typedef NS_ENUM(NSInteger, ZCXImageBannerPlayerScrollDirectionType) {
 - (void)changeCurrentPageWithOffset:(CGFloat)offsetX {
     if (offsetX < self.width * 0.5) {
         NSInteger index = _currentIndex - 1;
-        if (index < 0)
-            index = _imageCount - 1;
+        if (index < 0) index = _imageCount - 1;
         _pageControl.currentPage = index;
-    } else if (offsetX > self.width * 1.5) {
+    }
+    else if (offsetX > self.width * 1.5) {
         _pageControl.currentPage = (_currentIndex + 1) % _imageCount;
-    } else {
+    }
+    else {
         _pageControl.currentPage = _currentIndex;
     }
 }
@@ -306,6 +310,16 @@ typedef NS_ENUM(NSInteger, ZCXImageBannerPlayerScrollDirectionType) {
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     [self reloadCurrentImage];
+}
+
+- (void)dealloc {
+    _imageScrollView = nil;
+    _currentImageView = nil;
+    _nextImageView = nil;
+    _pageControl = nil;
+    _imageArray = nil;
+    [_timer invalidate];
+    _timer = nil;
 }
 
 @end

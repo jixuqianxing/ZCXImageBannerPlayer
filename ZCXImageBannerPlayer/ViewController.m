@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _imageArray = @[@"http://download.pchome.net/wallpaper/pic-5465-5-1366x768.jpg",
                     @"http://download.pchome.net/wallpaper/pic-5194-7-1366x768.jpg",
                     @"http://pic1.win4000.com/wallpaper/b/537dc675ef44f.jpg",
